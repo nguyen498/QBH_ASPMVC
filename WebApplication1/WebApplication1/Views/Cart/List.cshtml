@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication1.Models.Cart>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List Cart</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+    </tr>
+}
+    <tr>
+        <td colspan="2"> So luong san pham: @ViewBag.CartCount</td>
+        <td colspan="2">Thanh tien: @String.Format("{0:0.00}", ViewBag.CartTotal)</td>
+        <td colspan="2">@Html.ActionLink("Dat hang", "OrderProduct")</td>
+    </tr>
+
+</table>
